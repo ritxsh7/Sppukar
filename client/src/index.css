@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=Kanit:wght@400;600;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Kanit', sans-serif;
+}
+
+.primary-btn{
+  background-color: whitesmoke;
+  border: 2px solid white;
+  padding: 0.6rem 2rem;
+  border-radius: 0.4rem;
+  color: black;
+  transition: 0.2s ease-in-out;
+}
+.primary-btn:hover{
+  border: 2px solid white;
+  background-color: #2A0316;
+  color: white;
+}
+
+.sppukar-main-app{
+  background-color: #2A0316;
+  height: 100vh;
+}
+
+/* ====================================HOME PAGE============================================== */
+#homepage{
+  /* position: relative; */
+  overflow: hidden;
+}
+
+.select-container {
+  margin: 50px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.custom-select {
+  width: 200px;
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid white;
+  /* Darker brown border */
+  background-color: white;
+  /* Darker brown background color */
+color: #2A0316;
+  border-radius: 4px;
+  appearance: none;
+  /* Remove default arrow on some browsers */
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-select:hover {
+  border-color: #d2691e;
+  /* Light brown border on hover */
+}
+
+.custom-select:focus {
+  border-color: yellow;
+  /* Light brown border on focus */
+  box-shadow: 0 0 5px white;
+  /* Light brown box shadow on focus */
+}
+.path1{
+  position: absolute;
+  top: 20%;
+  left: 0;
+  z-index: 1;
+}
+.path2{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20rem;
+  z-index: 1;   
+}
+
+.search{
+  padding: 0.6rem 2rem;
+    border-radius: 0.4rem;
+    color: white;
+    transition: 0.3s ease-in-out;
+    background-color: rgb(249 115 22);
+}
+.search:hover{
+  background-color: orangered;
+}
