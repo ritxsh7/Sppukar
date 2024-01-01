@@ -7,21 +7,17 @@ const fileSchema = new mongoose.Schema(
       ref: "Branch",
     },
     sid: {
-      type: mongoose.Schema.ObjectId,
-      ref: "Semester",
+      type: String,
+      required: true,
     },
     cid: {
       type: mongoose.Schema.ObjectId,
       ref: "Course",
     },
-    name: {
-      type: String,
-      required: true,
-    },
 
     category: {
       type: String,
-      enum: ["PPT", "TEXTBOOKS", "NOTES", "PYQS", "DECODES"],
+      enum: ["PPT", "TEXTBOOK", "NOTES", "PYQS", "DECODE"],
       required: true,
     },
     url: {

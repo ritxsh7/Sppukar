@@ -1,4 +1,4 @@
-import { Course, Branch } from "../models/index.js";
+import { Course, Branch, File } from "../models/index.js";
 
 export const setBranches = async (req, res) => {
   try {
@@ -32,6 +32,40 @@ export const setCourse = async (req, res) => {
   } catch (err) {
     res.json({
       error: err.message,
+    });
+  }
+};
+
+export const uploadFile = async (req, res) => {
+  try {
+    const { branch, semester, course, category, fileUrl } = req.body;
+    console.log({ branch, semester, course, category, fileUrl });
+
+    const checkBranch = await Branch.findOne({ name: branch });
+    console.log(checkBranch);
+    const checkCourse = await Course.findOne({
+      name: course,
+      sid: semester,
+      bid: checkBranch._id,
+    });
+
+    const file = new File({
+      bid: checkBranch._id,
+      sid: semester,
+      cid: checkCourse._id,
+      category: category,
+      url: fileUrl,
+    });
+
+    const newFile = await file.save();
+    res.status(200).json({
+      success: "true",
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.status(400).json({
+      error: err.message,
+      success: false,
     });
   }
 };

@@ -12,7 +12,8 @@ import { Branch, Course } from "../models/index.js";
 
 export const getBranches = async (req, res) => {
   try {
-    let branches = await Branch.find({});
+    let branches = await Branch.find();
+    console.log(branches);
     branches = branches.map((branch) => branch.name).sort();
     return res.send(branches);
   } catch (err) {

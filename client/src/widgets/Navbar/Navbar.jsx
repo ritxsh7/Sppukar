@@ -12,7 +12,7 @@ const Navbar = () => {
           {/* <img alt="logo"></img> */}
           <h2 className="text-3xl">SppuKar</h2>
         </div>
-        <NavLink to="/">
+        <NavLink to="/upload-files">
           <h3>Upload Material</h3>
         </NavLink>
         <NavLink to="/">

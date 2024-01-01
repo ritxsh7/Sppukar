@@ -16,6 +16,8 @@ app.use(express.json());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
+//file uploading
+
 //api routing
 app.use("/api/v1", Router);
 

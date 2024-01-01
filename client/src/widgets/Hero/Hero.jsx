@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 // components
 import path1 from "../../assets/path1.png";
@@ -6,6 +7,11 @@ import path2 from "../../assets/path2.png";
 import Select from "./Select";
 
 const Hero = () => {
+  // states for filters
+  const [b, setB] = useState(null);
+  const [s, setS] = useState(b === "First Year" ? "Sem 1" : "Sem 3");
+  const [c, setC] = useState(null);
+
   return (
     <>
       <img src={path1} className="path1"></img>
@@ -17,8 +23,13 @@ const Hero = () => {
         <p className="text-2xl my-6">
           One stop solution for all study material for all the fields in SPPU :)
         </p>
-        <Select />
-        <button className="search w-[71%]">Search for material</button>
+        <Select b={b} s={s} c={c} setB={setB} setS={setS} setC={setC} />
+        <button className="search mb-3 w-[71%]">Search for material</button>
+        <p>OR</p>
+
+        <NavLink to="/upload-files" style={{ width: "71%" }}>
+          <div className="upload mt-3 w-[100%]">Contribute material</div>
+        </NavLink>
       </div>
     </>
   );

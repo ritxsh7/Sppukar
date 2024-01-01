@@ -40,7 +40,7 @@
 }
 
 .select-container {
-  margin: 50px;
+  margin: 3rem;
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ label {
   /* Darker brown border */
   background-color: white;
   /* Darker brown background color */
-color: #2A0316;
+  color: #2A0316;
   border-radius: 4px;
   appearance: none;
   /* Remove default arrow on some browsers */
@@ -100,4 +100,36 @@ color: #2A0316;
 }
 .search:hover{
   background-color: orangered;
+}
+.upload{
+  padding: 0.6rem 2rem;
+    border-radius: 0.4rem;
+    color: white;
+    transition: 0.3s ease-in-out;
+    background-color: #7A3CEC;
+}
+.upload:hover{
+  background-color: darkviolet;
+}
+
+
+/* ============================CONTRIBUTE PAGE================================================ */
+
+.contribute-page{
+  background-color: #2A0316;
+}
+
+.name-input{
+  padding: 0.6rem 1rem;
+  /* width: 25%; */
+  border-radius: 0.2rem;
+  border: none;
+}
+
+.name-input:focus{
+  outline: 2px solid yellow;
+}
+
+.name-input::placeholder{
+  color: rgb(95, 95, 95) ;
 }
