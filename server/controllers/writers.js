@@ -38,8 +38,8 @@ export const setCourse = async (req, res) => {
 
 export const uploadFile = async (req, res) => {
   try {
-    const { branch, semester, course, category, fileUrl } = req.body;
-    console.log({ branch, semester, course, category, fileUrl });
+    const { branch, semester, course, category, fileUrl, filename } = req.body;
+    console.log({ branch, semester, course, category, fileUrl, filename });
 
     const checkBranch = await Branch.findOne({ name: branch });
     console.log(checkBranch);
@@ -55,6 +55,7 @@ export const uploadFile = async (req, res) => {
       cid: checkCourse._id,
       category: category,
       url: fileUrl,
+      filename: filename,
     });
 
     const newFile = await file.save();

@@ -2,11 +2,11 @@ import RotateLoader from "react-spinners/RotateLoader";
 
 import React from "react";
 
-const Loader = ({ loading }) => {
+const Loader = ({ loading, color }) => {
   return (
     <div>
       <RotateLoader
-        color="#FDE047"
+        color={color}
         loading={loading}
         size={20}
         cssOverride={{

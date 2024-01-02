@@ -14,7 +14,10 @@ const UploadButton = ({ currentFile, setCurrentFile }) => {
       <input
         type="file"
         className="file-input"
-        onChange={(e) => setCurrentFile(e.target.files[0])}
+        onChange={(e) => {
+          setCurrentFile(e.target.files[0]);
+          console.log(currentFile);
+        }}
       />
     </div>
   );

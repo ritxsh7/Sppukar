@@ -10,7 +10,9 @@ const Navbar = () => {
       <div className="navbar--items flex gap-4 items-center">
         <div className="navbar--logo flex flex-col">
           {/* <img alt="logo"></img> */}
-          <h2 className="text-3xl">SppuKar</h2>
+          <NavLink to="/">
+            <h2 className="text-3xl mb-1">SppuKar</h2>
+          </NavLink>
         </div>
         <NavLink to="/upload-files">
           <h3>Upload Material</h3>

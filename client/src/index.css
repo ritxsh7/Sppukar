@@ -133,3 +133,30 @@ label {
 .name-input::placeholder{
   color: rgb(95, 95, 95) ;
 }
+
+
+/* ==============================COURSE PAGE=========================================== */
+
+.course-page > h1{
+  border-bottom: 2px solid #2A0316;
+  padding-bottom: 1rem;
+}
+
+.category-container{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+
+/* =================================MATERIAL PAGE======================================= */
+.material-page > h1{
+  border-bottom: 2px solid #2A0316;
+    padding-bottom: 1rem;
+}
+
+.file-list{
+  /* background-color: #2A0316 */
+  max-width: 40rem;
+  display: grid;
+  grid-template-columns: auto auto;
+}

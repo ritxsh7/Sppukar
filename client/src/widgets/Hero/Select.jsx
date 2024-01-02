@@ -41,7 +41,7 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
       const res = await axios.get(
         `${serverUrl}/get-courses/?name=${br}&Sem=${sem}`
       );
-      console.log(res?.data);
+      // console.log(res?.data);
       setC(res?.data[0]);
       dispatch(setCourse(res?.data));
       setLoading(false);
@@ -118,7 +118,7 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
           )}
         </select>
       </div>
-      <Loader loading={loading} />
+      <Loader loading={loading} color={"#FDE047"} />
     </div>
   );
 };

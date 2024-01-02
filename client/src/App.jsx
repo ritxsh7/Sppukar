@@ -9,6 +9,8 @@ import Navbar from "./widgets/Navbar/Navbar";
 //pages
 import HomePage from "./views/HomePage";
 import ContributePage from "./views/ContributePage";
+import CoursePage from "./views/CoursePage";
+import MaterialPage from "./views/MaterialPage";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/upload-files" element={<ContributePage />}></Route>
+          <Route path="/categories/" element={<CoursePage />}></Route>
+          <Route path="/material/" element={<MaterialPage />}></Route>
         </Routes>
       </div>
     </Router>

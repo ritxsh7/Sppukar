@@ -1,0 +1,24 @@
+.study-card {
+    display: flex;
+    text-align: center;
+    width: 20rem;
+    height: 15rem;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.subject {
+    height: max-content;
+    font-size: 18px;
+    align-items: center;
+    margin: auto 0;
+}
+
+.study-card:hover{
+    background-color: rgb(222, 222, 222);
+}

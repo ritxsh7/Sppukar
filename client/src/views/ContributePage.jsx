@@ -5,12 +5,14 @@ import path1 from "../assets/path1.png";
 import path2 from "../assets/path2.png";
 import Select from "../widgets/Hero/Select";
 import UploadButton from "../widgets/UploadButton/UploadButton";
-
+import Dialog from "../widgets/Dialog/Dialog";
+import check from "../assets/check.png";
 //data
 import { categories } from "../configs/filters";
 import { uploadFileToFirebase } from "../functions/uplooadToFirebase";
 import axios from "axios";
 import ProgressDialog from "../widgets/ProgressDialog/ProgressDialog";
+import Loader from "../widgets/Loader/Loader";
 
 const Contribute = () => {
   //states and store
@@ -19,10 +21,10 @@ const Contribute = () => {
   const [s, setS] = useState(b === "First Year" ? "Sem 1" : "Sem 3");
   const [category, setCategory] = useState(categories[0]);
   const [currentFile, setCurrentFile] = useState(null);
-  const [fileUrl, setFileUrl] = useState("");
+  const [loading, setLoading] = useState(false);
   const [isprogress, setIsprogress] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [uploaded, setUploaded] = useState(false);
   // console.log(currentFile);
 
   const serverUrl = import.meta.env.VITE_BACKEND_URL;
@@ -41,8 +43,10 @@ const Contribute = () => {
     formData.append("semester", s);
     formData.append("course", c);
     formData.append("category", category);
+    formData.append("filename", currentFile.name);
 
     try {
+      setLoading(true);
       setIsprogress(true);
       const fileUrl = await uploadFileToFirebase(currentFile, setProgress);
       setIsprogress(false);
@@ -50,12 +54,17 @@ const Contribute = () => {
 
       try {
         const response = await axios.post(`${serverUrl}/upload-file`, formData);
-        setUploaded(true);
+        console.log(response.data);
+        setCurrentFile(null);
+        setLoading(false);
+        setDialogOpen(true);
       } catch (err) {
         console.log(err);
+        setLoading(false);
       }
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   };
 
@@ -72,14 +81,14 @@ const Contribute = () => {
       </p>
       {isprogress && <ProgressDialog progress={progress} />}
       <Select b={b} s={s} c={c} setB={setB} setS={setS} setC={setC} />
-      {currentFile && !uploaded && (
+      {currentFile && (
         <p className="mb-3 text-amber-200 text-sm">
           Please make sure that file name is convenient so that others can
           recognise it easily
         </p>
       )}
       <UploadButton currentFile={currentFile} setCurrentFile={setCurrentFile} />
-      {currentFile && !uploaded && (
+      {currentFile && (
         <>
           <div className="my-3 w-[25%]">
             <label htmlFor="categories" className="text-sm">
@@ -109,6 +118,13 @@ const Contribute = () => {
           </button>
         </>
       )}
+      <Dialog
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
+        img={check}
+        msg="File uploaded successfully"
+      />
+      <Loader loading={loading} color={"#FDE047"} />
     </div>
   );
 };

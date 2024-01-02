@@ -1,5 +1,9 @@
 import express from "express";
-import { getBranches, getCourses } from "../controllers/readers.js";
+import {
+  getBranches,
+  getMaterial,
+  getCourses,
+} from "../controllers/readers.js";
 import { setBranches, setCourse, uploadFile } from "../controllers/writers.js";
 import multer from "multer";
 
@@ -10,6 +14,7 @@ const router = express.Router();
 
 router.get("/get-branches", getBranches);
 router.get("/get-courses/", getCourses);
+router.get("/material/", getMaterial);
 
 router.post("/set-course", setCourse);
 router.post("/set-branches", setBranches);

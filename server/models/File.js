@@ -15,9 +15,14 @@ const fileSchema = new mongoose.Schema(
       ref: "Course",
     },
 
+    filename: {
+      type: String,
+      required: true,
+    },
+
     category: {
       type: String,
-      enum: ["PPT", "TEXTBOOK", "NOTES", "PYQS", "DECODE"],
+      enum: ["PPT", "TEXTBOOK", "NOTES", "PYQS", "DECODE", "QUESTION BANK"],
       required: true,
     },
     url: {

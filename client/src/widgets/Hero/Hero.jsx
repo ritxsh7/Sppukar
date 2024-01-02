@@ -24,7 +24,12 @@ const Hero = () => {
           One stop solution for all study material for all the fields in SPPU :)
         </p>
         <Select b={b} s={s} c={c} setB={setB} setS={setS} setC={setC} />
-        <button className="search mb-3 w-[71%]">Search for material</button>
+        <NavLink
+          to={`/categories/?branch=${b}&semester=${s}&course=${c}`}
+          style={{ width: "71%" }}
+        >
+          <button className="search mb-3 w-[100%]">Search for material</button>
+        </NavLink>
         <p>OR</p>
 
         <NavLink to="/upload-files" style={{ width: "71%" }}>
