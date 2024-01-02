@@ -50,13 +50,13 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
   }, [b, s]);
 
   return (
-    <div className="select-container w-max md:flex">
+    <div className="select-container flex flex-col items-center w-[95vw] max-w-[600px] md:my-12 my-[6rem] md:flex-row">
       {/* ===================================SELECT BRANCH===================================== */}
-      <div className="flex flex-col text-left mx-3 ">
+      <div className="flex flex-col mt-2 text-center md:text-left mx-3 w-[85%]">
         <label htmlFor={filter.name}>{`Select a branch : `}</label>
         <select
           id={filter.name}
-          className="custom-select"
+          className="custom-select w-[100%]"
           onChange={(e) => {
             setB(e.target.value);
           }}
@@ -75,7 +75,7 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
 
       {/* ===================================SELECT SEMESTER===================================== */}
 
-      <div className="flex flex-col text-left mx-3 ">
+      <div className="flex flex-col mt-2 text-center md:text-left mx-3 w-[85%]">
         <label htmlFor={filter.name}>{`Select a semester :`}</label>
         <select
           id={filter.name}
@@ -98,7 +98,7 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
 
       {/* ===================================SELECT COURSE===================================== */}
 
-      <div className="flex flex-col text-left mx-3 ">
+      <div className="flex flex-col mt-2 text-center md:text-left mx-3 w-[85%]">
         <label htmlFor={filter.name}>{`Select course :`}</label>
         <select
           id={filter.name}
@@ -111,7 +111,7 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
             <option>No data available</option>
           ) : (
             course?.map((c) => (
-              <option key={c} value={c}>
+              <option key={c} value={c} className="text-black max-w-[10rem]">
                 {c}
               </option>
             ))

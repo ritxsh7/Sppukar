@@ -69,9 +69,9 @@ const Contribute = () => {
   };
 
   return (
-    <div className="contribute-page flex flex-col items-center text-white h-[89vh]">
-      <img src={path1} className="path1"></img>
-      <img src={path2} className="path2"></img>
+    <div className="contribute-page flex flex-col items-center text-white h-[89vh] z-0">
+      <img src={path1} className="path1 -z-[1]"></img>
+      <img src={path2} className="path2 -z-[1]"></img>
       <h1 className="text-5xl text-yellow-300 font-semibold md:mt-[2rem]">
         {`JOIN THE COMMUNITY`}
       </h1>

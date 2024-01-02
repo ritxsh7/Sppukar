@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=Kanit:wght@400;600;700&display=swap');
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-*{
-  margin : 0;
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Bricolage Grotesque', sans-serif;
-    font-family: 'Kanit', sans-serif;
+  font-family: 'Kanit', sans-serif;
 }
 
-.primary-btn{
+.primary-btn {
   background-color: whitesmoke;
   border: 2px solid white;
   padding: 0.6rem 2rem;
@@ -22,25 +20,29 @@
   color: black;
   transition: 0.2s ease-in-out;
 }
-.primary-btn:hover{
+
+.primary-btn:hover {
   border: 2px solid white;
   background-color: #2A0316;
   color: white;
 }
 
-.sppukar-main-app{
+.sppukar-main-app {
   background-color: #2A0316;
   height: 100vh;
 }
 
 /* ====================================HOME PAGE============================================== */
-#homepage{
+#homepage {
   /* position: relative; */
   overflow: hidden;
 }
 
+.homepage-hero{
+  position: relative;
+}
+
 .select-container {
-  margin: 3rem;
   text-align: center;
 }
 
@@ -51,7 +53,7 @@ label {
 }
 
 .custom-select {
-  width: 200px;
+  width: 100%;
   padding: 10px;
   font-size: 1em;
   border: 2px solid white;
@@ -66,6 +68,11 @@ label {
   cursor: pointer;
 }
 
+.option{
+  width: 200px;
+  font-size: small;
+}
+
 .custom-select:hover {
   border-color: #d2691e;
   /* Light brown border on hover */
@@ -77,84 +84,99 @@ label {
   box-shadow: 0 0 5px white;
   /* Light brown box shadow on focus */
 }
-.path1{
-  position: absolute;
+
+.path1 {
+  position: fixed;
   top: 20%;
   left: 0;
-  z-index: 1;
+  z-index: 0;
 }
-.path2{
-  position: absolute;
+
+.path2 {
+  position: fixed;
   right: 0;
   bottom: 0;
   width: 20rem;
-  z-index: 1;   
+  z-index: 0;
 }
 
-.search{
+.search {
   padding: 0.6rem 2rem;
-    border-radius: 0.4rem;
-    color: white;
-    transition: 0.3s ease-in-out;
-    background-color: rgb(249 115 22);
+  border-radius: 0.4rem;
+  color: white;
+  transition: 0.3s ease-in-out;
+  background-color: rgb(249 115 22);
 }
-.search:hover{
+
+.search:hover {
   background-color: orangered;
 }
-.upload{
+
+.upload {
   padding: 0.6rem 2rem;
-    border-radius: 0.4rem;
-    color: white;
-    transition: 0.3s ease-in-out;
-    background-color: #7A3CEC;
+  border-radius: 0.4rem;
+  color: white;
+  transition: 0.3s ease-in-out;
+  background-color: #7A3CEC;
 }
-.upload:hover{
+
+.upload:hover {
   background-color: darkviolet;
 }
 
 
+@media screen and (max-width : 450px){
+  .path1{
+    top:20%;
+    width: 7rem;
+  }
+  .path2{
+    width: 10rem;
+  }
+}
+
 /* ============================CONTRIBUTE PAGE================================================ */
 
-.contribute-page{
+.contribute-page {
   background-color: #2A0316;
 }
 
-.name-input{
+.name-input {
   padding: 0.6rem 1rem;
   /* width: 25%; */
   border-radius: 0.2rem;
   border: none;
 }
 
-.name-input:focus{
+.name-input:focus {
   outline: 2px solid yellow;
 }
 
-.name-input::placeholder{
-  color: rgb(95, 95, 95) ;
+.name-input::placeholder {
+  color: rgb(95, 95, 95);
 }
 
 
 /* ==============================COURSE PAGE=========================================== */
 
-.course-page > h1{
+.course-page>h1 {
   border-bottom: 2px solid #2A0316;
   padding-bottom: 1rem;
 }
 
-.category-container{
+.category-container {
   display: grid;
   grid-template-columns: auto auto;
 }
 
 
 /* =================================MATERIAL PAGE======================================= */
-.material-page > h1{
+.material-page>h1 {
   border-bottom: 2px solid #2A0316;
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
-.file-list{
+.file-list {
   /* background-color: #2A0316 */
   max-width: 40rem;
   display: grid;
