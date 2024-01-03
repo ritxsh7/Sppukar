@@ -6,7 +6,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: white;
     margin: 10px auto;
-    width: 250px;
+    width: 300px;
 }
 
 .file-icon {
@@ -40,4 +40,10 @@
 .file-card p{
     font-size: small;
 color: #666;
+}
+
+@media screen and (max-width : 450px){
+    .file-card{
+        width: 85vw;
+    }
 }

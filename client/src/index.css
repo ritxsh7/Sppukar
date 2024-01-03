@@ -89,7 +89,7 @@ label {
   position: fixed;
   top: 20%;
   left: 0;
-  z-index: 0;
+  z-index: -1;
 }
 
 .path2 {
@@ -97,19 +97,19 @@ label {
   right: 0;
   bottom: 0;
   width: 20rem;
-  z-index: 0;
+  z-index: -1;
 }
 
 .search {
   padding: 0.6rem 2rem;
   border-radius: 0.4rem;
-  color: white;
+  color: rgb(43, 43, 43);
   transition: 0.3s ease-in-out;
-  background-color: rgb(249 115 22);
+  background-color: #fde047;
 }
 
 .search:hover {
-  background-color: orangered;
+  background-color: #ffc400;
 }
 
 .upload {
@@ -132,6 +132,10 @@ label {
   }
   .path2{
     width: 10rem;
+  }
+  .primary-btn{
+    font-size: small;
+    padding: 0.5rem 1.5rem;
   }
 }
 
@@ -166,12 +170,20 @@ label {
 
 .category-container {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto ;
+}
+
+@media screen and (max-width : 450px) {
+  .category-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
 }
 
 
 /* =================================MATERIAL PAGE======================================= */
-.material-page>h1 {
+.material-page > h1 {
   border-bottom: 2px solid #2A0316;
   padding-bottom: 1rem;
 }
@@ -181,4 +193,12 @@ label {
   max-width: 40rem;
   display: grid;
   grid-template-columns: auto auto;
+}
+
+@media screen and (max-width : 450px) {
+  .file-list{
+    display: flex;
+    flex-direction: column;
+  }
+
 }

@@ -56,13 +56,13 @@ const MaterialPage = () => {
   }, [branch, semester, course]);
 
   return (
-    <div className="material-page text-gray-700 py-4 px-[10rem] min-h-[87vh] bg-violet-200">
-      <h1 className="text-3xl text-center">{`${branch} > ${semester} > ${course} > ${category}s`}</h1>
+    <div className="material-page text-gray-700 w-screen py-4 md:px-[10rem] min-h-[90vh] bg-violet-200">
+      <h1 className="text-lg md:text-3xl text-center">{`${branch} > ${semester} > ${course} > ${category}s`}</h1>
 
       {files?.length === 0 ? (
         <NoData />
       ) : (
-        <div className="file-list md:w-[50vw] mx-auto my-8">
+        <div className="file-list max-w-[50rem] mx-auto my-8">
           {files?.map((file) => (
             <>
               <FileCard {...file} key={file._id} />

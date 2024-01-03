@@ -27,7 +27,7 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
       const res = await axios.get(`${serverUrl}/get-branches`);
       dispatch(setBranch(res.data));
       setB(res?.data[0]);
-      console.log(res.data);
+      // console.log(res.data);
       setLoading(false);
     };
     getBranches();
@@ -50,10 +50,13 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
   }, [b, s]);
 
   return (
-    <div className="select-container flex flex-col items-center w-[95vw] max-w-[600px] md:my-12 my-[6rem] md:flex-row">
+    <div className="select-container text-sm flex flex-col items-center w-[95vw] max-w-[650px] md:my-12 my-[2rem] md:flex-row">
       {/* ===================================SELECT BRANCH===================================== */}
       <div className="flex flex-col mt-2 text-center md:text-left mx-3 w-[85%]">
-        <label htmlFor={filter.name}>{`Select a branch : `}</label>
+        <label
+          htmlFor={filter.name}
+          className="text-[0.9rem] md:text-md"
+        >{`Select a branch : `}</label>
         <select
           id={filter.name}
           className="custom-select w-[100%]"
@@ -76,7 +79,10 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
       {/* ===================================SELECT SEMESTER===================================== */}
 
       <div className="flex flex-col mt-2 text-center md:text-left mx-3 w-[85%]">
-        <label htmlFor={filter.name}>{`Select a semester :`}</label>
+        <label
+          htmlFor={filter.name}
+          className="text-[0.9rem] md:text-md"
+        >{`Select a semester :`}</label>
         <select
           id={filter.name}
           className="custom-select"
@@ -99,7 +105,10 @@ const Select = ({ b, s, c, setB, setS, setC }) => {
       {/* ===================================SELECT COURSE===================================== */}
 
       <div className="flex flex-col mt-2 text-center md:text-left mx-3 w-[85%]">
-        <label htmlFor={filter.name}>{`Select course :`}</label>
+        <label
+          htmlFor={filter.name}
+          className="text-[0.9rem] md:text-md"
+        >{`Select course :`}</label>
         <select
           id={filter.name}
           className="custom-select"

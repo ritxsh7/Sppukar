@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // components
 import path1 from "../assets/path1.png";
@@ -13,6 +13,8 @@ import { uploadFileToFirebase } from "../functions/uplooadToFirebase";
 import axios from "axios";
 import ProgressDialog from "../widgets/ProgressDialog/ProgressDialog";
 import Loader from "../widgets/Loader/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { setNavbarOpen } from "../functions/ui";
 
 const Contribute = () => {
   //states and store
@@ -28,7 +30,6 @@ const Contribute = () => {
   // console.log(currentFile);
 
   const serverUrl = import.meta.env.VITE_BACKEND_URL;
-
   //=======================upload file function==========================
 
   const uploadFile = async () => {
@@ -69,63 +70,68 @@ const Contribute = () => {
   };
 
   return (
-    <div className="contribute-page flex flex-col items-center text-white h-[89vh] z-0">
-      <img src={path1} className="path1 -z-[1]"></img>
-      <img src={path2} className="path2 -z-[1]"></img>
-      <h1 className="text-5xl text-yellow-300 font-semibold md:mt-[2rem]">
-        {`JOIN THE COMMUNITY`}
-      </h1>
-      <p className="text-xl mt-3 z-50">
-        Contribute your own material to the world of Engineers and make the
-        community even larger.
-      </p>
-      {isprogress && <ProgressDialog progress={progress} />}
-      <Select b={b} s={s} c={c} setB={setB} setS={setS} setC={setC} />
-      {currentFile && (
-        <p className="mb-3 text-amber-200 text-sm">
-          Please make sure that file name is convenient so that others can
-          recognise it easily
+    <>
+      <div className="contribute-page w-[100vw] px-[5vw] pb-8 md:w-[70vw] mx-auto text-center relative flex flex-col items-center text-white min-h-[89vh] z-10">
+        <img src={path1} className="path1 md:block"></img>
+        <img src={path2} className="path2 md:block"></img>
+        <h1 className="text-4xl text-yellow-300 mt-4 md:mt-4 font-normal md:font-semibold">
+          {`JOIN BY UPLOADING`}
+        </h1>
+        <p className="text-md md:text-2xl mt-2 md:mt-6 text-gray-200 font-light">
+          Contribute your own material to the world of Engineers and make the
+          community even larger.
         </p>
-      )}
-      <UploadButton currentFile={currentFile} setCurrentFile={setCurrentFile} />
-      {currentFile && (
-        <>
-          <div className="my-3 w-[25%]">
-            <label htmlFor="categories" className="text-sm">
-              Select category :
-            </label>
-            <select
-              id="categories"
-              className="custom-select"
-              style={{ width: "100%" }}
-              onChange={(e) => setCategory(e.target.value)}
+        {isprogress && <ProgressDialog progress={progress} />}
+        <Select b={b} s={s} c={c} setB={setB} setS={setS} setC={setC} />
+        {currentFile && (
+          <p className="mb-3 text-amber-200 text-xs md:text-sm">
+            Please make sure that file name is convenient so that others can
+            recognise it easily
+          </p>
+        )}
+        <UploadButton
+          currentFile={currentFile}
+          setCurrentFile={setCurrentFile}
+        />
+        {currentFile && (
+          <>
+            <div className="my-3 w-[80vw] max-w-[650px]">
+              <label htmlFor="categories" className="text-sm">
+                Select category :
+              </label>
+              <select
+                id="categories"
+                className="custom-select md:text-md text-sm"
+                style={{ width: "100%" }}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                {categories.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button
+              className="mt-4 w-[80vw] max-w-[650px] py-3"
+              onClick={() => {
+                uploadFile();
+              }}
+              style={{ backgroundColor: "#7a3cec", borderRadius: "0.4rem" }}
             >
-              {categories.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button
-            className="mt-4 w-[25%] py-3"
-            onClick={() => {
-              uploadFile();
-            }}
-            style={{ backgroundColor: "#7a3cec", borderRadius: "0.4rem" }}
-          >
-            Upload file
-          </button>
-        </>
-      )}
-      <Dialog
-        dialogOpen={dialogOpen}
-        setDialogOpen={setDialogOpen}
-        img={check}
-        msg="File uploaded successfully"
-      />
-      <Loader loading={loading} color={"#FDE047"} />
-    </div>
+              Upload file
+            </button>
+          </>
+        )}
+        <Dialog
+          dialogOpen={dialogOpen}
+          setDialogOpen={setDialogOpen}
+          img={check}
+          msg="File uploaded successfully"
+        />
+        <Loader loading={loading} color={"#FDE047"} />
+      </div>
+    </>
   );
 };
 

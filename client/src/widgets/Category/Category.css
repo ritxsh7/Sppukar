@@ -1,7 +1,7 @@
 .study-card {
     display: flex;
     text-align: center;
-    width: 20rem;
+    width: 18vw;
     height: 15rem;
     border-radius: 10px;
     overflow: hidden;
@@ -12,6 +12,11 @@
     transition: 0.3s ease-out;
 }
 
+.study-card img { 
+    width: 7rem;
+    margin-top: 3rem;
+ }
+
 .subject {
     height: max-content;
     font-size: 18px;
@@ -21,4 +26,15 @@
 
 .study-card:hover{
     background-color: rgb(222, 222, 222);
+}
+
+@media screen and (max-width : 450px){
+    .study-card{
+        width: 40vw;
+        height: 40vw;
+    }
+    .study-card img{
+        width: 20vw;
+        margin-top: 1rem;
+    }
 }

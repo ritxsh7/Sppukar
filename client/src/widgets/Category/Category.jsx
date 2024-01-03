@@ -8,11 +8,7 @@ const Category = ({ name, index }) => {
   const url = icons[index];
   return (
     <div className="study-card flex flex-col items-center">
-      <img
-        src={url}
-        alt="card-icon"
-        style={{ width: "7rem", marginTop: "3rem" }}
-      ></img>
+      <img src={url} alt="card-icon"></img>
       <h2 className="subject">{name}</h2>
     </div>
   );

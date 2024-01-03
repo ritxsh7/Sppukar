@@ -13,9 +13,9 @@ const CoursePage = () => {
   const course = paras.get("course");
 
   return (
-    <div className="course-page text-gray-700 py-4 px-[10rem] min-h-[87vh] bg-violet-200">
-      <h1 className="text-3xl text-center border-b-black">{`${branch} > ${semester} > ${course}`}</h1>
-      <div className="category-container max-w-[50rem] md:w-[60vw] mt-8 mx-auto">
+    <div className="course-page text-gray-700 w-screen py-4 md:px-[5rem] min-h-[87vh] bg-violet-200">
+      <h1 className="text-lg md:text-3xl text-center border-b-black">{`${branch} > ${semester} > ${course}`}</h1>
+      <div className="category-container w-[95vw] max-w-[58rem] mt-8 mx-auto">
         {categories.map((c, i) => (
           <NavLink
             key={c}

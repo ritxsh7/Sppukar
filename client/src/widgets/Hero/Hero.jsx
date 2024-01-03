@@ -14,13 +14,13 @@ const Hero = () => {
 
   return (
     <>
-      <img className="path1" src={path1}></img>
-      <img className="path2" src={path2}></img>
-      <div className="homepage-hero w-[90vw] md:w-[60vw] flex flex-col items-center text-center text-white mx-auto">
-        <h1 className="text-4xl text-yellow-300 mt-4 md:mt-0 font-semibold">
+      <div className="homepage-hero w-[90vw] md:w-[70vw] md:mt-[4rem] flex flex-col items-center text-center text-white mx-auto z-10">
+        <img className="path1 md:block" src={path1}></img>
+        <img className="path2 md:block" src={path2}></img>
+        <h1 className="text-4xl text-yellow-300 mt-4 md:mt-0 font-normal md:font-semibold">
           {`NOTES.     BOOKS.     PTS.`}
         </h1>
-        <p className=" text-xl md:text-2xl mt-6 text-white">
+        <p className=" text-md md:text-2xl mt-2 md:mt-6 text-grey-200">
           One stop solution for all study material for all the fields in SPPU :)
         </p>
         <Select b={b} s={s} c={c} setB={setB} setS={setS} setC={setC} />
