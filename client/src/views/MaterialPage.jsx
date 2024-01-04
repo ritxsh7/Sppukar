@@ -56,7 +56,7 @@ const MaterialPage = () => {
   }, [branch, semester, course]);
 
   return (
-    <div className="material-page text-gray-700 w-screen py-4 md:px-[10rem] min-h-[90vh] bg-violet-200">
+    <div className="material-page text-gray-700 py-4 md:px-[10rem] min-h-[90vh] bg-violet-200">
       <h1 className="text-lg md:text-3xl text-center">{`${branch} > ${semester} > ${course} > ${category}s`}</h1>
 
       {files?.length === 0 ? (
