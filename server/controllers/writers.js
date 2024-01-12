@@ -63,7 +63,6 @@ export const uploadFile = async (req, res) => {
       success: "true",
     });
   } catch (err) {
-    console.log(err.message);
     res.status(400).json({
       error: err.message,
       success: false,

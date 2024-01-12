@@ -29,7 +29,7 @@
 
 .sppukar-main-app {
   background-color: #2A0316;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* ====================================HOME PAGE============================================== */

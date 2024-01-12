@@ -23,6 +23,14 @@ const Hero = () => {
         <p className=" text-md md:text-2xl mt-2 md:mt-6 text-grey-200">
           One stop solution for all study material for all the fields in SPPU :)
         </p>
+        <h3 className="mt-8">
+          We're currently shifting the database. To test the application use
+          following filters :
+          <br />
+          <span className="text-yellow-300">
+            "Computer - Sem 5 - Computer Network"
+          </span>
+        </h3>
         <Select b={b} s={s} c={c} setB={setB} setS={setS} setC={setC} />
         <NavLink
           to={`/categories/?branch=${b}&semester=${s}&course=${c}`}
