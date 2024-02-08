@@ -7,8 +7,4 @@ export const navbar = [
     name: "My history",
     link: "/",
   },
-  {
-    name: "About Authors",
-    link: "https://ritesh-patil-portfolio.web.app/",
-  },
 ];

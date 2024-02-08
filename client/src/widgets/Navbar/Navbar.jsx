@@ -57,9 +57,6 @@ const Navbar = () => {
             ))}
           </ul>
         </aside>
-        <NavLink to="/">
-          <h3 className="primary-btn">Sign In</h3>
-        </NavLink>
       </div>
     </header>
   );
