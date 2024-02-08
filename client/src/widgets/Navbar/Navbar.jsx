@@ -17,7 +17,6 @@ const Navbar = () => {
     <header className="navbar text-white flex px-6 py-4">
       <div className="navbar--items justify-between w-[100%] flex items-center">
         <div className="navbar--logo flex md:flex-col">
-          {/* <img alt="logo"></img> */}
           <div
             className="md:hidden flex items-center text-2xl max-w-fit"
             onClick={() => dispatch(setNavbarOpen())}
