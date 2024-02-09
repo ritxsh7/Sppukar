@@ -5,6 +5,9 @@ const branchSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  semesters: {
+    type: Array,
+  },
   courses: [
     {
       type: mongoose.Schema.ObjectId,

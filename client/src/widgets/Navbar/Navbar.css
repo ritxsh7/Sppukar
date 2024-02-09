@@ -1,6 +1,7 @@
 .navbar{
     background-color: #2a0316;
 }
-
 .sidebar{
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 1s;
 }

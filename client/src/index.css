@@ -28,7 +28,7 @@
 }
 
 .sppukar-main-app {
-  background-color: #2A0316;
+  background-color: #DDD6FE;
   min-height: 100vh;
 }
 
@@ -74,7 +74,7 @@ label {
 }
 
 .custom-select:hover {
-  border-color: #d2691e;
+  border-color: #2A0316;
   /* Light brown border on hover */
 }
 
@@ -102,26 +102,27 @@ label {
 
 .search {
   padding: 0.6rem 2rem;
-  border-radius: 0.4rem;
-  color: rgb(43, 43, 43);
-  transition: 0.3s ease-in-out;
-  background-color: #fde047;
+    border-radius: 0.4rem;
+    color: white;
+    transition: 0.3s ease-in-out;
+    background-color: #4C1D95;
+  
 }
 
 .search:hover {
-  background-color: #ffc400;
+  background-color: #571f39;
 }
 
 .upload {
   padding: 0.6rem 2rem;
-  border-radius: 0.4rem;
-  color: white;
-  transition: 0.3s ease-in-out;
-  background-color: #7A3CEC;
+    border-radius: 0.4rem;
+    color: white;
+    transition: 0.3s ease-in-out;
+    background-color: #2A0316;
 }
 
 .upload:hover {
-  background-color: darkviolet;
+  background-color: #5b398f;
 }
 
 
@@ -140,11 +141,6 @@ label {
 }
 
 /* ============================CONTRIBUTE PAGE================================================ */
-
-.contribute-page {
-  background-color: #2A0316;
-}
-
 .name-input {
   padding: 0.6rem 1rem;
   /* width: 25%; */

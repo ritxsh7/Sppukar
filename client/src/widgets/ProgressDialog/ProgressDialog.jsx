@@ -5,17 +5,26 @@ import "./ProgressDialog.css";
 
 const ProgressDialog = ({ progress }) => {
   const style = {
-    background: `conic-gradient(orange ${progress}%, #1E1B4B ${progress}%)`,
+    background: `conic-gradient( #1D020F ${progress}%, white ${progress}%)`,
+  };
+
+  const circle = {
+    borderRadius: "50%",
   };
 
   return (
-    <div
-      className="progress-dialog flex items-center justify-center"
-      style={style}
-    >
-      <div className="progress-inner text-white flex flex-col items-center justify-center gap-2">
-        <h4>Uploading ...</h4>
-        <p className="text-orange-300">{progress}%</p>
+    <div className="progress-dialog flex items-center justify-center">
+      <div
+        style={style}
+        className="progress-inner flex flex-col items-center justify-center gap-2"
+      >
+        <div
+          className="bg-white w-[85%] h-[85%] flex flex-col items-center justify-center"
+          style={circle}
+        >
+          <h4>Uploading ...</h4>
+          <p className="">{progress}%</p>
+        </div>
       </div>
     </div>
   );

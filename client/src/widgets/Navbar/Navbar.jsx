@@ -35,27 +35,37 @@ const Navbar = () => {
           ))}
         </ul>
         <aside
-          className={`sidebar md:hidden fixed top-0 left-0 p-8 h-screen z-[1000] opacity-100 ${
+          className={`sidebar w-full md:hidden fixed top-0 left-0 z-[1000] ${
             isNavbarOpen ? "block " : "hidden"
-          } bg-violet-950`}
+          } `}
         >
           <div
-            className=" flex items-center text-3xl absolute right-2 top-2"
-            onClick={() => dispatch(setNavbarOpen())}
+            id="sidebar-zone"
+            className="w-[75vw] relative p-8 h-screen bg-violet-800"
           >
-            <ion-icon name="close-sharp"></ion-icon>
+            <div
+              className=" flex items-center text-3xl absolute right-2 top-2"
+              onClick={() => dispatch(setNavbarOpen())}
+            >
+              <ion-icon name="close-sharp"></ion-icon>
+            </div>
+            <ul className="mt-8 flex flex-col gap-4 text-left">
+              {navbar.map((item) => (
+                <NavLink
+                  to={item.link}
+                  key={item.name}
+                  onClick={() => dispatch(setNavbarOpen())}
+                >
+                  <div className="flex items-center gap-3 text-xl">
+                    <div className="text-2xl flex items-center">
+                      <ion-icon name={item.icon}></ion-icon>
+                    </div>
+                    <h3>{item.name}</h3>
+                  </div>
+                </NavLink>
+              ))}
+            </ul>
           </div>
-          <ul className="mt-8 flex flex-col gap-4 text-left">
-            {navbar.map((item) => (
-              <NavLink
-                to={item.link}
-                key={item.name}
-                onClick={() => dispatch(setNavbarOpen())}
-              >
-                <h3>{item.name}</h3>
-              </NavLink>
-            ))}
-          </ul>
         </aside>
       </div>
     </header>

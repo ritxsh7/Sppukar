@@ -9,7 +9,7 @@ import Category from "../widgets/Category/Category";
 const CoursePage = () => {
   const [paras] = useSearchParams();
   const branch = paras.get("branch");
-  const semester = paras.get("semester");
+  const semester = paras.get("sem");
   const course = paras.get("course");
 
   return (

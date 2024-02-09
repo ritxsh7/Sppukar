@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const courseSchema = new mongoose.Schema({
-  bid: {
-    type: mongoose.Schema.ObjectId,
-    ref: "Branch",
+  branch: {
+    type: String,
+    required: true,
   },
-  sid: {
+  sem: {
     type: String,
     required: true,
   },

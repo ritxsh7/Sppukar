@@ -2,65 +2,83 @@ import { Course, Branch, File } from "../models/index.js";
 
 export const setBranches = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, semesters } = req.body;
+
     const branch = new Branch({
       name,
+      semesters,
     });
-    const newbr = await branch.save();
-    res.json({
-      br: newbr,
+
+    const NewBranch = await branch.save();
+
+    res.status(200).json({
+      NewBranch,
     });
   } catch (err) {
-    res.json({
-      error: err.message,
-    });
+    res.send("Can't make a branch");
+    console.log(err.message);
   }
 };
 
 export const setCourse = async (req, res) => {
   try {
-    const { name, sid, course } = req.body;
-    const { _id } = await Branch.findOne({ name });
+    const { branch, name, sem } = req.body;
 
-    const newCourse = new Course({
-      bid: _id,
-      sid,
-      name: course,
+    let NewCourse = new Course({
+      branch,
+      sem,
+      name,
     });
-    const data = await newCourse.save();
-    res.send(data);
+
+    NewCourse = await NewCourse.save();
+
+    const NewCourseAdded = await Branch.findOneAndUpdate(
+      { name: branch },
+      {
+        $push: { courses: NewCourse._id },
+      },
+      { new: true }
+    )
+      .populate("courses")
+      .exec();
+
+    res.status(200).json({
+      NewCourseAdded,
+    });
   } catch (err) {
-    res.json({
-      error: err.message,
-    });
+    res.send("Can't add a new course");
+    console.log(err.message);
   }
 };
 
 export const uploadFile = async (req, res) => {
   try {
     const { branch, semester, course, category, fileUrl, filename } = req.body;
-    console.log({ branch, semester, course, category, fileUrl, filename });
-
-    const checkBranch = await Branch.findOne({ name: branch });
-    console.log(checkBranch);
-    const checkCourse = await Course.findOne({
-      name: course,
-      sid: semester,
-      bid: checkBranch._id,
-    });
 
     const file = new File({
-      bid: checkBranch._id,
-      sid: semester,
-      cid: checkCourse._id,
       category: category,
       url: fileUrl,
       filename: filename,
     });
 
-    const newFile = await file.save();
+    const NewFile = await file.save();
+
+    const CheckCourse = await Course.findOneAndUpdate(
+      {
+        branch,
+        sem: semester,
+      },
+      {
+        $push: { files: NewFile._id },
+      },
+      { new: true }
+    )
+      .populate("files")
+      .exec();
+    console.log(CheckCourse);
+
     res.status(200).json({
-      success: "true",
+      CheckCourse,
     });
   } catch (err) {
     res.status(400).json({

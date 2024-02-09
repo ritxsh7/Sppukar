@@ -11,7 +11,6 @@ export const uploadFileToFirebase = (file, setProgress) => {
     try {
       const storage = getStorage(app);
 
-      console.log(file);
       const filename = file.name;
 
       // Upload file

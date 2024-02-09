@@ -1,4 +1,5 @@
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 
 //routers
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -11,12 +12,14 @@ import HomePage from "./views/HomePage";
 import ContributePage from "./views/ContributePage";
 import CoursePage from "./views/CoursePage";
 import MaterialPage from "./views/MaterialPage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <Router>
       <div className="sppukar-main-app">
         <Navbar />
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/upload-files" element={<ContributePage />}></Route>

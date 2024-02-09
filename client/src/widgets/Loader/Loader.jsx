@@ -8,7 +8,7 @@ const Loader = ({ loading, color }) => {
       <RotateLoader
         color={color}
         loading={loading}
-        size={20}
+        size={15}
         cssOverride={{
           position: "fixed",
           bottom: "33%",

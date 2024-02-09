@@ -2,19 +2,6 @@ import mongoose from "mongoose";
 
 const fileSchema = new mongoose.Schema(
   {
-    bid: {
-      type: mongoose.Schema.ObjectId,
-      ref: "Branch",
-    },
-    sid: {
-      type: String,
-      required: true,
-    },
-    cid: {
-      type: mongoose.Schema.ObjectId,
-      ref: "Course",
-    },
-
     filename: {
       type: String,
       required: true,

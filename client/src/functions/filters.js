@@ -1,27 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  branch: [],
-  course: [],
-  FE: ["Sem 1", "Sem 2"],
-  SE: ["Sem 3", "Sem 4", "Sem 5", "Sem 6", "Sem 7", "Sem 8"],
+  branches: [],
+  semesters: [],
+  courses: [],
 };
 
 const filters = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    setBranch: (state, { payload }) => {
-      state.branch = payload;
+    setBranches: (state, { payload }) => {
+      state.branches = payload;
     },
-    setCourse: (state, { payload }) => {
-      state.course = payload;
+    setCourses: (state, { payload }) => {
+      state.courses = payload;
     },
-    setSemester: (state, { payload }) => {
-      state.semester = payload;
+    setSemesters: (state, { payload }) => {
+      state.semesters = payload;
+    },
+    clearSemesters: (state) => {
+      state.semesters = [];
+    },
+    clearCourses: (state) => {
+      state.courses = [];
     },
   },
 });
 
 export default filters.reducer;
-export const { setBranch, setCourse, setSemester } = filters.actions;
+export const {
+  setBranches,
+  setCourses,
+  setSemesters,
+  clearSemesters,
+  clearCourses,
+} = filters.actions;

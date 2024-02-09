@@ -3,9 +3,13 @@ import {
   getBranches,
   getMaterial,
   getCourses,
+  getSemesters,
 } from "../controllers/readers.js";
+
 import { setBranches, setCourse, uploadFile } from "../controllers/writers.js";
+
 import multer from "multer";
+import { CheckNull } from "../middlewares/validators.js";
 
 export const storage = multer.memoryStorage(); // Store files in memory (you can customize this)
 export const upload = multer({ storage: storage });
@@ -13,6 +17,7 @@ export const upload = multer({ storage: storage });
 const router = express.Router();
 
 router.get("/get-branches", getBranches);
+router.get("/get-semesters/", CheckNull, getSemesters);
 router.get("/get-courses/", getCourses);
 router.get("/material/", getMaterial);
 

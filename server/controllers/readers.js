@@ -1,35 +1,38 @@
+import { validationResult } from "express-validator";
 import { Branch, Course, File } from "../models/index.js";
-
-//template
-// export const setCourse = async (req, res) => {
-//   try {
-//   } catch (err) {
-//     res.json({
-//       error: err.message,
-//     });
-//   }
-// };
 
 export const getBranches = async (req, res) => {
   try {
     let branches = await Branch.find();
-    console.log(branches);
     branches = branches.map((branch) => branch.name).sort();
-    return res.send(branches);
+    res.status(200).json(branches);
   } catch (err) {
-    return res.json({
-      error: err.message,
-    });
+    res.send("Can't get branches");
+    console.log(err.message);
+  }
+};
+
+export const getSemesters = async (req, res) => {
+  let { branch } = req.query;
+  if (!branch) {
+    return res.status(400).send("Please select a branch");
+  } else {
+    if (branch === "FE") return res.status(200).json(["Sem 1", "Sem 2"]);
+    else
+      return res
+        .status(200)
+        .json(["Sem 3", "Sem 4", "Sem 5", "Sem 6", "Sem 7", "Sem 8"]);
   }
 };
 
 export const getCourses = async (req, res) => {
   try {
-    const { name, Sem } = req.query;
-    console.log(name, Sem);
-    const { _id } = await Branch.findOne({ name });
-    const checkCourses = await Course.find({ bid: _id, sid: Sem });
-    res.send(checkCourses.map((c) => c.name).sort());
+    const { branch, sem } = req.query;
+    let SelectedCourses = await Course.find({ branch, sem }).select(
+      "-_id name"
+    );
+    SelectedCourses = SelectedCourses.map((course) => course.name);
+    res.status(200).json(SelectedCourses);
   } catch (err) {
     res.json({
       error: err.message,
@@ -39,26 +42,25 @@ export const getCourses = async (req, res) => {
 
 export const getMaterial = async (req, res) => {
   try {
-    const { branch, semester, course, category } = req.query;
-    console.log(req.query);
+    const { branch, sem, course, category } = req.query;
+    console.log(branch, sem, course);
 
-    const checkBranch = await Branch.findOne({ name: branch });
-    const checkCourse = await Course.findOne({
+    let FilteredFiles = await Course.findOne({
+      branch,
+      sem,
       name: course,
-      sid: semester,
-      bid: checkBranch._id,
-    });
+    })
+      .populate("files")
+      .exec();
 
-    const files = await File.find({
-      bid: checkBranch._id,
-      sid: semester,
-      cid: checkCourse._id,
-      category: category,
-    });
-    // console.log(files);
+    console.log(FilteredFiles);
+
+    FilteredFiles = FilteredFiles.files.filter(
+      (file) => file.category === category
+    );
 
     res.status(200).json({
-      files,
+      FilteredFiles,
     });
   } catch (err) {
     res.json({

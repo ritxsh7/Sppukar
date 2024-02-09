@@ -10,7 +10,7 @@ import NoData from "../widgets/NoData/NoData";
 const MaterialPage = () => {
   const [paras] = useSearchParams();
   const branch = paras.get("branch");
-  const semester = paras.get("semester");
+  const sem = paras.get("semester");
   const course = paras.get("course");
   const category = paras.get("category");
 
@@ -23,7 +23,7 @@ const MaterialPage = () => {
   useEffect(() => {
     const getHistory = async () => {
       let history = await JSON.parse(localStorage.getItem("history"));
-      const newHistory = { branch, semester, course };
+      const newHistory = { branch, sem, course };
       if (!history) {
         history = [];
       }
@@ -35,29 +35,23 @@ const MaterialPage = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${serverUrl}/material/?branch=${encodeURIComponent(
-            branch
-          )}&semester=${encodeURIComponent(
-            semester
-          )}&course=${encodeURIComponent(course)}&category=${encodeURIComponent(
+          `${serverUrl}/material/?branch=${branch}&sem=${sem}&course=${course}&category=${encodeURIComponent(
             category
           )}`
         );
-        console.log(response.data);
-        setFiles(response.data.files);
+        setFiles(response.data.FilteredFiles);
         setLoading(false);
       } catch (err) {
-        console.log(err);
         setLoading(false);
       }
     };
     getHistory();
     getMaterial();
-  }, [branch, semester, course]);
+  }, [branch, sem, course, category]);
 
   return (
     <div className="material-page text-gray-700 py-4 md:px-[10rem] min-h-[90vh] bg-violet-200">
-      <h1 className="text-lg md:text-3xl text-center">{`${branch} > ${semester} > ${course} > ${category}s`}</h1>
+      <h1 className="text-lg md:text-3xl text-center">{`${branch} > ${sem} > ${course} > ${category}s`}</h1>
 
       {files?.length === 0 ? (
         <NoData />

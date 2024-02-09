@@ -1,18 +1,17 @@
 .progress-dialog{
-    height: 25vh;
-    width: 25vh;
-    background-color: yellowgreen;
-    border-radius: 50%;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0,0,0, 0.3);
    position: fixed;
-   top: 37vh;
-   right: 50%;
-   translate: 50% 0;
+   top: 0;
+   left: 0;
    z-index: 999;
+   color: #4c1d95;
 }
 
 .progress-inner{
     height: 22vh;
     width: 22vh;
     border-radius: 50%;
-    background-color: #1E1B4B;
+    background-color: #fff;
 }

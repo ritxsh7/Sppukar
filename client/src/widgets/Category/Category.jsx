@@ -6,6 +6,7 @@ import { icons } from "../../configs/filters";
 
 const Category = ({ name, index }) => {
   const url = icons[index];
+
   return (
     <div className="study-card flex flex-col items-center">
       <img src={url} alt="card-icon"></img>
