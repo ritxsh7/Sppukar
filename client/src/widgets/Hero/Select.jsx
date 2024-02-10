@@ -23,7 +23,7 @@ const Select = () => {
     (store) => store.filters
   );
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const InputFilters = [branches, semesters, courses];
   const FilterValues = [branch, semester, course];
@@ -45,7 +45,7 @@ const Select = () => {
       }
     };
     getBranches();
-  }, [serverUrl]);
+  }, []);
 
   //========================== GET ALL THE SEMESTERS==========================
   useEffect(() => {

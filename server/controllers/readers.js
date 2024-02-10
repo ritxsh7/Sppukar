@@ -53,11 +53,11 @@ export const getMaterial = async (req, res) => {
       .populate("files")
       .exec();
 
-    console.log(FilteredFiles);
-
     FilteredFiles = FilteredFiles.files.filter(
       (file) => file.category === category
     );
+
+    console.log(FilteredFiles);
 
     res.status(200).json({
       FilteredFiles,

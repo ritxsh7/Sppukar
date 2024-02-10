@@ -54,7 +54,7 @@ const Hero = () => {
           Search for material
         </button>
         <p className="text-black">OR</p>
-        <NavLink to="/upload-files" style={{ width: "95vw" }}>
+        <NavLink to="/upload-files" style={{ width: "100%" }}>
           <div className="upload mt-3 w-[100%] max-w-[40rem] mx-auto">
             Contribute material
           </div>
