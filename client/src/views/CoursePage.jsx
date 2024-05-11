@@ -19,7 +19,11 @@ const CoursePage = () => {
         {categories.map((c, i) => (
           <NavLink
             key={c}
-            to={`/material/?branch=${branch}&semester=${semester}&course=${course}&category=${c}`}
+            to={`/material/?branch=${encodeURIComponent(
+              branch
+            )}&semester=${encodeURIComponent(
+              semester
+            )}&course=${encodeURIComponent(course)}&category=${c}`}
           >
             <Category name={c} index={i} />
           </NavLink>

@@ -54,6 +54,7 @@ export const setCourse = async (req, res) => {
 export const uploadFile = async (req, res) => {
   try {
     const { branch, semester, course, category, fileUrl, filename } = req.body;
+    console.log(branch, semester, course, category, fileUrl, filename);
 
     const file = new File({
       category: category,
@@ -65,6 +66,7 @@ export const uploadFile = async (req, res) => {
 
     const CheckCourse = await Course.findOneAndUpdate(
       {
+        name: course,
         branch,
         sem: semester,
       },

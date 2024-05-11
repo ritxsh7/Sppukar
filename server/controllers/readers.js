@@ -43,7 +43,7 @@ export const getCourses = async (req, res) => {
 export const getMaterial = async (req, res) => {
   try {
     const { branch, sem, course, category } = req.query;
-    console.log(branch, sem, course);
+    console.log(branch, sem, course, category);
 
     let FilteredFiles = await Course.findOne({
       branch,

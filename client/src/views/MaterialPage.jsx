@@ -33,11 +33,14 @@ const MaterialPage = () => {
 
     const getMaterial = async () => {
       setLoading(true);
+      console.log(branch, sem, course);
       try {
         const response = await axios.get(
-          `${serverUrl}/material/?branch=${branch}&sem=${sem}&course=${course}&category=${encodeURIComponent(
-            category
-          )}`
+          `${serverUrl}/material/?branch=${encodeURIComponent(
+            branch
+          )}&sem=${encodeURIComponent(sem)}&course=${encodeURIComponent(
+            course
+          )}&category=${encodeURIComponent(category)}`
         );
         setFiles(response.data.FilteredFiles);
         setLoading(false);
@@ -47,7 +50,7 @@ const MaterialPage = () => {
     };
     getHistory();
     getMaterial();
-  }, [branch, sem, course, category]);
+  }, []);
 
   return (
     <div className="material-page text-gray-700 py-4 md:px-[10rem] min-h-[90vh] bg-violet-200">
