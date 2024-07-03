@@ -13,6 +13,7 @@ import ContributePage from "./views/ContributePage";
 import CoursePage from "./views/CoursePage";
 import MaterialPage from "./views/MaterialPage";
 import { ToastContainer } from "react-toastify";
+import Converter from "./views/Converter";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/upload-files" element={<ContributePage />}></Route>
           <Route path="/categories/" element={<CoursePage />}></Route>
           <Route path="/material/" element={<MaterialPage />}></Route>
+          <Route path="/cgpa-to-percentage" element={<Converter />}></Route>
         </Routes>
       </div>
     </Router>

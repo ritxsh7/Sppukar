@@ -1,0 +1,79 @@
+.cgpa-converter {
+    background-color: #DDD6FE;
+    padding: 0px;
+    border-radius: 8px;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    color: #2A0316;
+}
+
+.cgpa-converter form {
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.cgpa-converter label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size : 1rem;
+}
+
+.cgpa-converter input {
+    padding: 8px;
+    width: calc(100% - 20px);
+    margin-bottom: 1rem;
+    border: 1px solid #4C1D95;
+    border-radius: 4px;
+}
+
+.cgpa-converter button {
+    background-color: #4C1D95;
+    color: #FFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cgpa-converter button:hover {
+    background-color: #3B1581;
+}
+
+.cgpa-converter .result {
+    background-color: #F0F0FF;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.cgpa-converter .result p {
+    margin: 8px 0;
+}
+
+.result{
+    width:90vw;
+    max-width: 450px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 2px solid black;
+}
+
+.result-criteria{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 2px solid black;
+    gap: 1rem;
+}
+
+@media screen and (min-width:450px){
+    .result {
+            align-items: center;
+        }
+}

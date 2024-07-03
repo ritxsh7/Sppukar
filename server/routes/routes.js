@@ -4,6 +4,7 @@ import {
   getMaterial,
   getCourses,
   getSemesters,
+  cgpaToPercentage,
 } from "../controllers/readers.js";
 
 import { setBranches, setCourse, uploadFile } from "../controllers/writers.js";
@@ -20,6 +21,7 @@ router.get("/get-branches", getBranches);
 router.get("/get-semesters/", CheckNull, getSemesters);
 router.get("/get-courses/", getCourses);
 router.get("/material/", getMaterial);
+router.get("/cgpa-to-percentage/:cgpa", cgpaToPercentage);
 
 router.post("/set-course", setCourse);
 router.post("/set-branches", setBranches);

@@ -16,6 +16,11 @@ export const navbar = [
     link: "/",
     icon: "time",
   },
+  {
+    name: "CGPA Converter *",
+    link: "/cgpa-to-percentage",
+    icon: "calculator",
+  },
 ];
 
 export const SelectInputs = [
