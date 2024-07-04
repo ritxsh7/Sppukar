@@ -21,8 +21,13 @@ const ConverterForm = () => {
   const converterFunction = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(validateCGPA(cgpa));
+
     try {
+      if (!validateCGPA(cgpa)) {
+        toast.error("Invalid CGPA", styles.toast);
+        setLoading(false);
+        return;
+      }
       const results = await axios.get(
         `${SERVER_URL}/cgpa-to-percentage/${cgpa}`
       );
