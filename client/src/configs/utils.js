@@ -1,4 +1,5 @@
 import { setBranch, setSemester, setCourse } from "../functions/choices";
+import newBadge from "../assets/new-badge.png";
 
 export const navbar = [
   {
@@ -17,9 +18,10 @@ export const navbar = [
     icon: "time",
   },
   {
-    name: "CGPA Converter *",
+    name: "CGPA Converter",
     link: "/cgpa-to-percentage",
     icon: "calculator",
+    badge: newBadge,
   },
 ];
 

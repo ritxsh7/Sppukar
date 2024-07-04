@@ -5,7 +5,6 @@ import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setNavbarOpen } from "../../functions/ui";
-
 //utils
 import { navbar } from "../../configs/utils";
 
@@ -27,10 +26,13 @@ const Navbar = () => {
             <h2 className="text-2xl ml-2 md:text-3xl">SppuKar</h2>
           </NavLink>
         </div>
-        <ul className="hidden md:flex md:gap-5">
+        <ul className="hidden md:flex md:gap-5 navbar-menu">
           {navbar.map((item) => (
-            <NavLink to={item.link} key={item.name}>
+            <NavLink to={item.link} key={item.name} className="navbar-menu">
               <h3>{item.name}</h3>
+              {item.badge && (
+                <img className="badge-img max-w-6" src={item.badge}></img>
+              )}
             </NavLink>
           ))}
         </ul>
